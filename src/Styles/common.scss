@@ -1,0 +1,35 @@
+.ds-flex-c-c{
+    display: flex;
+    justify-content: center;  
+    align-items: center;
+}
+.ds-flex-sa-c{
+    display: flex;
+    justify-content: space-around;  
+    align-items: center; 
+}
+.ds-flex-sb-c{
+    display: flex;
+    justify-content: space-between;  
+    align-items: center; 
+}
+.ds-flex-dir-c
+{
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.wd-100
+{
+  width: 100%;
+}
+.wd-45
+{
+  width: 45%;
+}
+button:hover{
+    cursor: pointer;
+  }
+.hidde-element{
+    display: none;
+}

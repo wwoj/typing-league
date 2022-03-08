@@ -11,3 +11,34 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.slogan-text{
+
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+}
+.box-shadow1{
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;  
+}
+.box-shadow2{
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.btn-password-show{
+  border: none;
+    background: white;
+    border-radius: 0 1rem 1rem 0rem;
+    width: 20%;
+    /* border-left: 1px solid blue; */
+}
+

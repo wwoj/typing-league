@@ -1,0 +1,150 @@
+.login-page{
+    background-color:rgba(109,154,196,255);
+    background-image: url("file:///C:/Users/wojciech.wojcik/Desktop/Projects/TheTypingLeague/typing-league/src/Pictures/Login2.jpg");
+    height: 100vh;
+    background-size: cover;
+}
+.login-1{
+    width: 100%;
+    height: 100%;
+    background: rgba(237,237,237,0.6);
+}
+.login-forms-container
+{
+  overflow: hidden;
+  width: 30%;
+  border-radius: 1rem;
+  background: #efefef;
+}
+.login-input-format{
+    // width: 96%;
+    // padding:  0.5rem 2% 0.5rem 2%;
+    margin: 0;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+}
+.btn-login-action{
+    border: none;
+      background: none;
+      width: 50%;
+      background: #efefef;
+      padding: 1rem;
+      transition: 1s;
+}
+.btn-login-action:first-child{
+    border-right: 3px solid #bbbbbb;
+}
+.btn-login-action-inactive{
+    background-color: #d5d5d5;
+}
+.login-text
+{
+    padding: 0;
+    margin: 0;
+    padding-bottom: 0.4rem;
+}
+.register-input-text:focus,.login-password-input-text:focus {
+    background-color: #ccdee5;
+    border: none;
+    outline: none;
+  }
+  
+  .btn-login-action-sb{
+    background-color: #e1576f;
+    color: white;
+  }
+  .container-login-form .login-form-row
+  {
+    padding-top: 2rem;
+  }
+  .register-step{
+    width: 50px;
+      height: 50px;
+      background: #e1e1e1;
+      font-weight: 700;
+    color: white;
+      border-radius: 50%;
+  }
+  .registration-inprogress{
+    background-color: #e1576f;
+  }
+  .registration-completed{
+    background-color: #78df7c;
+  }
+  .register-line{
+    height: 2px;
+    width: 30px;
+    background-color: #e1576f;
+    margin: 5px;
+  }
+  .register-logo-img{
+    border-radius: 20%;
+  }
+  .password-hint
+  {
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+  .wrong-password{
+    color: red;
+  }
+  .wrong-input-val{
+    border: 2px solid red;
+  }
+  .password-container
+{
+     /* background: red; */
+     width: 100%;
+     /* padding: 0.5rem 2% 0.5rem 2%; */
+     margin: 0;
+     border: none;
+     border-radius: 1rem;
+     font-size: 1rem;
+     display: flex;
+     justify-content: space-between;
+}
+.login-password-input-text
+{
+  width: 80%;
+    padding: 0.5rem 2% 0.5rem 2%;
+    margin: 0;
+    border: none;
+    border-radius: 1rem 0 0 1rem;
+    font-size: 1rem;
+}
+
+.btn-register{
+    background-color: #4f7293;
+}
+.btn-register:active{
+    background-color: #1e466c
+}
+// .register-input-text{
+  
+// }
+.btn-reg-step:active{
+    background-color: #e93c5a;
+}
+.btn-password-show{
+    border: none;
+      background: white;
+      border-radius: 0 1rem 1rem 0rem;
+      width: 20%;
+      /* border-left: 1px solid blue; */
+}
+.show-password{
+    background-color: #e1576f;
+    color: white;
+}
+.wd-input-text{
+    width: 96%;
+}
+.wd-input-text-padding{
+    padding: 0.5rem 2% 0.5rem 2%;
+}
+.register-text-conf{
+    background: #4f7293;
+    color: white;
+    font-weight: 700;
+}
