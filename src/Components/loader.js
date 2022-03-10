@@ -1,0 +1,14 @@
+import {react} from 'react'
+
+const Loader =()=>{
+    return (
+      <div className="loader-login">
+        <div className="container">
+          <div className="dot dot1"></div>
+          <div className="dot dot2"></div>
+          <div className="dot dot3"></div>
+        </div>
+      </div>
+    );
+}
+export default Loader;

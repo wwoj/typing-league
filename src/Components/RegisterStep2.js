@@ -1,12 +1,23 @@
-import {React,useState,useEffect} from 'react';
+import {React,useState,useEffect,useRef} from 'react';
 import { checkLoginAvailable } from '../Services/loginCheck';
+import Loader from './loader';
 
 const RegisterStep2 = (props)=>{
-  const [logingSatus,setLoginStatus]=useState({"avaliable":false,"empty":true,"showTooltip":false});
+  const [logingSatus,setLoginStatus]=useState({"avaliable":false,"notEmpty":true,"showTooltip":false});
+  const btnNext = useRef(null);
+
   useEffect(() => {
-   console.log("Used effect called");
+    if(logingSatus.avaliable  )
+    {
+
+      let asd = btnNext.current.id;
+
+      props.updStepReg(asd)
+    }
   
-}, [checkLoginAvailable]);
+}, [logingSatus.avaliable]);
+
+
 return (
   <section>
     <div className="login-form-row">
@@ -18,8 +29,14 @@ return (
           props.changeUserLogin(e.target.value);
         }}
         defaultValue={props.userLogin}
-
       />
+      <div
+        className={`password-hint ${
+          logingSatus.showTooltip ? "wrong-password" : "hidde-element"
+        }`}
+      >
+        Login is already used, please choose another
+      </div>
     </div>
     <div className="login-form-row">
       <p className="login-text">Select Icon</p>
@@ -62,28 +79,29 @@ return (
         id="btnRegNext"
         type="button"
         className="login-input-format btn-login-action-sb btn-reg-step wd-45 wd-input-text-padding"
+        ref={btnNext}
         onClick={(e) => {
+          props.setLoading({...props.pageStatus,
+            'loading': true})
           const idName = e.target.id;
-          // props.updStepReg(idName);
-          console.log(logingSatus)
+          const userObject = {
+            login: props.userLogin,
+          };
+          checkLoginAvailable(userObject).then((result) => {
+            setLoginStatus({
+              avaliable: result,
+              empty: false,
+              showTooltip: !result,
+            });
+            props.setLoading({...props.pageStatus,
+              'loading': false})
+          });
         }}
       >
         NEXT
-      </button>
-      <button onClick={()=>{
-        const userObject = {
-          "login": "wojwixxx"
-        }
-    checkLoginAvailable(userObject).then((result) => {
-  setLoginStatus({"avaliable":result,"empty":false,"showTooltip":false})
-      
-  console.log("Wynik:",result);})
-
-      }}>Test Login!</button>
-      <button onClick={()=>{
-        console.log("State:",logingSatus)
-      }}>Show State:</button>
+      </button>     
     </div>
+    { props.pageStatus.loading? <Loader/>:""}
   </section>
 );
 }

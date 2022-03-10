@@ -11,6 +11,7 @@
 }
 .login-forms-container
 {
+  position: relative;
   overflow: hidden;
   width: 30%;
   border-radius: 1rem;
@@ -54,7 +55,7 @@
     background-color: #e1576f;
     color: white;
   }
-  .container-login-form .login-form-row
+  .container-login-form .login-form-row:not(:nth-child(1))
   {
     padding-top: 2rem;
   }

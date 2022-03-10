@@ -3,19 +3,23 @@ import DefaultUserPic from '../Pictures/UserDefault.jpg'
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep2 from './RegisterStep2';
 import RegisterStep3 from './RegisterStep3';
+import RegisterStep4 from './RegisterStep4';
+
 
 
 
 const RegisterForm = (props)=>{
+
   const [registrationStep, changeRegistrationStep] = useState(0);
   const [loginPicture, changeLoginPicture] = useState({ file: DefaultUserPic });
+  const [selectedFile, setSelectedFile] = useState(DefaultUserPic);
+
   const [userPassword, changeUserPassword] = useState("");
   const [userMail, changeUserMail] = useState("");
   const [userLogin, changeUserLogin] = useState("");
+  const [pageStatus, setLoading] = useState({'loading':false});
 
-
-
-  const fileInput = useRef(null);
+   const fileInput = useRef(null);
   const handleClick = () => {
     fileInput.current.click();
   };
@@ -49,16 +53,18 @@ const RegisterForm = (props)=>{
       break;
   }
   const updStepReg = (idName) => {    
+    console.log('Update step here')
     switch (idName) {
       case "btnRegNext":
         changeRegistrationStep(registrationStep + 1);
+        console.log("registrationStep",registrationStep)
         break;
       case "btnRegBack":
         changeRegistrationStep(registrationStep - 1);
         break;
       default: break;
     }
-    if (registrationStep >= 3) {
+    if (registrationStep >= 4) {
       changeRegistrationStep(0);
     } else if (registrationStep <= -1) {
       changeRegistrationStep(3);
@@ -68,10 +74,10 @@ const RegisterForm = (props)=>{
   const onImageChange = (event) => {
     console.log("ad 1");
     if (event.target.files && event.target.files[0]) {
+      setSelectedFile(event.target.files[0]);
       changeLoginPicture({
         file: URL.createObjectURL(event.target.files[0]),
       });
-      console.log("loginPicture", loginPicture);
     }
   };
   const PasswordChanging = (event)=>{
@@ -96,11 +102,62 @@ const RegisterForm = (props)=>{
             event.preventDefault();
           }}
         >
-          {registrationStep === 0 ? <RegisterStep1 mailChanging={MailChanging} passwordChanging ={PasswordChanging} updStepReg={updStepReg} userMail={userMail} userPassword={userPassword}/> : ""}
-          {registrationStep === 1 ? <RegisterStep2 onImageChange ={onImageChange} fileInput={fileInput} handleClick={handleClick} updStepReg={updStepReg} loginPicture={loginPicture} changeUserLogin={changeUserLogin} userLogin={userLogin}/> : ""}
-          {registrationStep === 2 ? <RegisterStep3 userMail={userMail} userLogin={userLogin} loginPicture={loginPicture}/> : ""}
-
-          
+          {registrationStep === 0 ? (
+            <RegisterStep1
+              mailChanging={MailChanging}
+              passwordChanging={PasswordChanging}
+              updStepReg={updStepReg}
+              setLoading={setLoading}
+              userMail={userMail}
+              userPassword={userPassword}
+              pageStatus={pageStatus}
+            />
+          ) : (
+            ""
+          )}
+          {registrationStep === 1 ? (
+            <RegisterStep2
+              onImageChange={onImageChange}
+              fileInput={fileInput}
+              handleClick={handleClick}
+              updStepReg={updStepReg}
+              loginPicture={loginPicture}
+              changeUserLogin={changeUserLogin}
+              userLogin={userLogin}
+              setLoading={setLoading}
+              pageStatus={pageStatus}
+            />
+          ) : (
+            ""
+          )}
+          {registrationStep === 2 ? (
+            <RegisterStep3
+              selectedFile={selectedFile}
+              userMail={userMail}
+              userLogin={userLogin}
+              loginPicture={loginPicture}
+              userPossword={userPassword}
+              updStepReg={updStepReg}
+              setLoading={setLoading}
+              pageStatus={pageStatus}
+            />
+          ) : (
+            ""
+          )}
+          {registrationStep === 3 ? (
+            <RegisterStep4
+              selectedFile={selectedFile}
+              userMail={userMail}
+              userLogin={userLogin}
+              loginPicture={loginPicture}
+              userPossword={userPassword}
+              updStepReg={updStepReg}
+              setLoading={setLoading}
+              pageStatus={pageStatus}
+            />
+          ) : (
+            ""
+          )}
         </form>
       </div>
     </div>

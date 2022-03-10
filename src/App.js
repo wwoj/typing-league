@@ -2,7 +2,20 @@
 import './App.css';
 import { useState } from 'react';
 import LoginRegistrationForm from './Views/LoginRegistrationForm';
-// const url="https://localhost:44346/api/league";
+import {
+  HashRouter,
+  Routes,
+  Route
+} from "react-router-dom";
+import HomePage from './Views/Home';
+import Dashboard from './Views/Dashboard';
+import WelcomeHome from './Views/WelcomeHome';
+import Registration from './Views/Registration/Registration';
+import Navbar from './Components/Navbar/Navbar';
+
+
+
+
 const url1="https://localhost:44346/api/aspnetuser/login";
 function App() {
   const[token,setToken]=useState();
@@ -51,44 +64,37 @@ function App() {
         break;
     }      
   }
+
   if(!token)
   {
     return (
-      <LoginRegistrationForm/>
+      <div>
+        <Navbar />
+        <HashRouter>
+          <Routes>
+            <Route exact path="/" element={<WelcomeHome />} />
+            <Route exact path="/registration" element={<Registration />} />
+          </Routes>
+        </HashRouter>
+        {/* <LoginRegistrationForm/> */}
+        <button
+          onClick={() => {
+            setToken(!token);
+          }}
+        >
+          Change token
+        </button>
+      </div>
     );
   }
   return (
     <div className="App">
-      <button onClick={testFetch1}>Test fetch</button>
-      <div>
-        <input
-          type="text"
-          id="Login"
-          placeholder="Login"
-          onKeyUp={changeLoginName}
-        />
-        <label htmlFor="Login">Login</label>
-      </div>
-      <div>
-        <input
-          type="text"
-          id="Mail"
-          placeholder="Mail"
-          onKeyUp={changeLoginName}
-        />
-        <label htmlFor="Mail">Mail</label>
-      </div>
-      <div>
-        <input type="text" id="Password" placeholder="Password" onKeyUp={changeLoginName}/>
-        <label htmlFor="Password">Password</label>
-      </div>
-      <div>States:
-        <p>Login: {loginName}</p>
-        <p>Mail: {loginMail}</p>
-        <p>Password: {loginPassword}</p>
-
-      </div>
-      
+      <HashRouter>
+        <Routes>
+          <Route exact path="/" element={<HomePage />} />
+          <Route exact path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </HashRouter>
     </div>
   );
 }
