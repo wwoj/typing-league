@@ -2,7 +2,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import LoginComponent from './LoginComponent'
-const Home =() =>{
+const Home =(props) =>{
     return (
       <div className="box-shadow1 login-forms-container">
         <div className="ds-flex-sa-c login-header-container">
@@ -12,7 +12,7 @@ const Home =() =>{
           <div className="" style={{ width: "95%" }}>
             <div className="ds-flex-sa-c"></div>
 
-            <LoginComponent />
+            <LoginComponent token={props.token} setToken={props.setToken} setUserData={props.setUserData} />
           </div>
         </div>
       </div>

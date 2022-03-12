@@ -1,6 +1,6 @@
 import {React,useState,useRef} from 'react';
-import { createUser } from '../Services/createUser';
-import Loader from './loader';
+import { createUser } from '../../Services/createUser';
+import Loader from '../loader';
 
 const RegisterStep3 = (props)=>{
   const [picture,setPic]= useState();

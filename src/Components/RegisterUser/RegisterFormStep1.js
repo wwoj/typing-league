@@ -1,5 +1,5 @@
 import {React,useState,useRef} from 'react';
-import DefaultUserPic from '../Pictures/UserDefault.jpg'
+import DefaultUserPic from '../../Pictures/UserDefault.jpg'
 import RegisterStep1 from './RegisterStep1';
 import RegisterStep2 from './RegisterStep2';
 import RegisterStep3 from './RegisterStep3';
@@ -52,12 +52,10 @@ const RegisterForm = (props)=>{
       registerStep1 = "register-step ds-flex-c-c";
       break;
   }
-  const updStepReg = (idName) => {    
-    console.log('Update step here')
+  const updStepReg = (idName) => {   
     switch (idName) {
       case "btnRegNext":
         changeRegistrationStep(registrationStep + 1);
-        console.log("registrationStep",registrationStep)
         break;
       case "btnRegBack":
         changeRegistrationStep(registrationStep - 1);
@@ -72,7 +70,6 @@ const RegisterForm = (props)=>{
   };
 
   const onImageChange = (event) => {
-    console.log("ad 1");
     if (event.target.files && event.target.files[0]) {
       setSelectedFile(event.target.files[0]);
       changeLoginPicture({

@@ -1,8 +1,8 @@
 import {React, useState,useRef,useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import {checkMailAvailable} from '../Services/mailCheck';
-import Loader from './loader';
+import {checkMailAvailable} from '../../Services/mailCheck';
+import Loader from '../loader';
 const RegisterStep1 = (props)=>{
   const [mailValidation,checkMailValication]=useState();
   const [mailPatterValid,setMailPatterValid] =useState();

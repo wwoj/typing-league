@@ -1,6 +1,6 @@
 import {React,useState,useEffect,useRef} from 'react';
-import { checkLoginAvailable } from '../Services/loginCheck';
-import Loader from './loader';
+import { checkLoginAvailable } from '../../Services/loginCheck';
+import Loader from '../loader';
 
 const RegisterStep2 = (props)=>{
   const [logingSatus,setLoginStatus]=useState({"avaliable":false,"notEmpty":true,"showTooltip":false});

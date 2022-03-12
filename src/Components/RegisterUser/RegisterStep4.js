@@ -19,9 +19,6 @@ return (
           id="finish"
           type="button"
           className="login-input-format wd-100 btn-login-action-sb btn-reg-step wd-input-text-padding"
-          onClick={(e) => {
-           console.log("Go home page")
-          }}
         >
           Finish
         </button>

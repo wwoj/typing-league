@@ -1,5 +1,5 @@
 import {React,useState} from 'react';
-import RegisterForm from '../Components/RegisterFormStep1'
+import RegisterForm from '../Components/RegisterUser/RegisterFormStep1'
 const LoginRegistrationForm =()=>{
 
   const [loginSignInStatus,changeLoginForm]= useState(true);
@@ -43,7 +43,6 @@ const loginForm = (
                 className={loginSignInStatus? "btn-login-action": "btn-login-action btn-login-action-inactive" }
                 onClick={() => {
                   changeLoginForm(true)
-                  console.log("Login form",loginSignInStatus);
                 }}
                 autoComplete="on"
               >
@@ -53,7 +52,6 @@ const loginForm = (
                 className= {loginSignInStatus? "btn-login-action btn-login-action-inactive": "btn-login-action" }
                 onClick={() => {
                   changeLoginForm(false)
-                  console.log("Registration form",loginSignInStatus);
                 }}
                 autoComplete="on"
               >
